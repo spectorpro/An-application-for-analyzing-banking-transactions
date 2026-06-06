@@ -7,6 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.14"
+flake8 = "^7.3.0"
+pytest = "^9.0.3"
+isort = "^8.0.1"
+mypy = "^2.1.0"
 
 
 [build-system]
