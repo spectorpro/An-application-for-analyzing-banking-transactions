@@ -1,8 +1,12 @@
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock
+from unittest.mock import patch
+
 import requests
 
-from src.services import get_currency_rates, get_stock_prices
+from src.services import get_currency_rates
+from src.services import get_stock_prices
+
 
 class TestCurrencyRates(unittest.TestCase):
 
@@ -118,6 +122,7 @@ class TestStockPrices(unittest.TestCase):
         result = get_stock_prices([])
 
         self.assertEqual(len(result), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

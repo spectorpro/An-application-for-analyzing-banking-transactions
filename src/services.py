@@ -1,5 +1,6 @@
 import requests
 
+
 def get_currency_rates(currencies: list) -> list:
     """Получение курсов валют (используем free API)"""
     rates = []
@@ -16,6 +17,7 @@ def get_currency_rates(currencies: list) -> list:
             print(f"Ошибка получения курса для {currency}: {e}")
             rates.append({"currency": currency, "rate": 0.0})
     return rates
+
 
 def get_stock_prices(stocks: list) -> list:
     """Получение цен акций (используем бесплатный API)"""

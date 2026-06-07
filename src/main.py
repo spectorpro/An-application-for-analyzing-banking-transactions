@@ -1,10 +1,12 @@
-from datetime import datetime
-from src.utils import load_transactions, load_user_settings
-from src.views import generate_main_page_json
 import json
-import os
 import logging
+import os
 from argparse import ArgumentParser
+from datetime import datetime
+
+from src.utils import load_transactions
+from src.utils import load_user_settings
+from src.views import generate_main_page_json
 
 # Настройка логирования с корректным путём для Windows
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
@@ -20,6 +22,7 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
+
 
 def parse_arguments():
     """Парсинг аргументов командной строки."""
@@ -44,6 +47,7 @@ def parse_arguments():
     )
     return parser.parse_args()
 
+
 def validate_data(transactions, user_settings):
     """Валидация загруженных данных."""
     if transactions.empty:
@@ -52,6 +56,7 @@ def validate_data(transactions, user_settings):
         raise ValueError("Настройки пользователя не загружены")
     logger.info(f"Загружено {len(transactions)} транзакций")
     return True
+
 
 def main():
     try:
@@ -80,7 +85,6 @@ def main():
 
         logger.info(f"Анализ на дату: {input_date_str}")
 
-        # Генерация JSON для главной страницы — передаём строку, а не datetime
         result = generate_main_page_json(input_date_str, transactions, user_settings, end_date)
 
         # Вывод результата
@@ -96,6 +100,7 @@ def main():
     except Exception as e:
         logger.exception(f"Неожиданная ошибка: {e}")
         print(f"Произошла ошибка при выполнении: {e}")
+
 
 if __name__ == '__main__':
     main()

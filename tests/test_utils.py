@@ -1,9 +1,13 @@
-import pytest
-from unittest.mock import patch, mock_open
-import pandas as pd
 from datetime import datetime
+from unittest.mock import mock_open
+from unittest.mock import patch
 
-from src.utils import load_transactions, get_greeting, load_user_settings
+import pandas as pd
+import pytest
+
+from src.utils import get_greeting
+from src.utils import load_transactions
+from src.utils import load_user_settings
 
 
 class TestLoadTransactions:

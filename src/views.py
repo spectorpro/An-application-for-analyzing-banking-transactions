@@ -1,8 +1,12 @@
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict
+
 import pandas as pd
+
+from .services import get_currency_rates
+from .services import get_stock_prices
 from .utils import get_greeting
-from .services import get_currency_rates, get_stock_prices
+
 
 def generate_main_page_json(
     input_date: str,

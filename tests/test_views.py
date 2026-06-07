@@ -1,8 +1,11 @@
-import pytest
-import pandas as pd
 from datetime import datetime
-from unittest.mock import patch, Mock
+from unittest.mock import patch
+
+import pandas as pd
+import pytest
+
 from src.views import generate_main_page_json
+
 
 class TestGenerateMainPageJson:
     @pytest.fixture
@@ -61,7 +64,6 @@ class TestGenerateMainPageJson:
         generate_main_page_json(input_date, sample_transactions, user_settings, end_date)
 
         mock_get_greeting.assert_called_once_with(datetime(2023, 1, 15, 8, 30, 0))
-
 
     @patch('src.views.get_currency_rates')
     def test_currency_rates_called_with_user_currencies(self, mock_get_currency_rates, sample_transactions, user_settings):
